@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Going Global – 5 Games to Master Internationalization Theory</title>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#14224f;--deep:#0b1535;--yel:#f0c040;--cream:#f7e3a0;--ink:#161a33;--c:#1b2b66;--t:#b9c2ea;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--deep);background-image:linear-gradient(#ffffff08 2px,transparent 2px),linear-gradient(90deg,#ffffff08 2px,transparent 2px);background-size:28px 28px;color:var(--cream);font:400 18px/1.45 "Pixelify Sans","Courier New",monospace}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:4px solid var(--yel);outline-offset:3px}
+header{display:flex;justify-content:space-between;align-items:center;max-width:900px;margin:0 auto;padding:14px 18px}
+.brand{background:none;border:0;color:var(--yel);font-weight:700;font-size:22px;padding:0}
+.pts{color:var(--yel);font-weight:700}
+main{max-width:900px;margin:0 auto;padding:0 18px 44px}
+h1{font-size:clamp(30px,7vw,52px);line-height:1.05;margin:14px 0 10px;color:var(--yel);text-shadow:4px 4px 0 #c4412e}
+h2{font-size:clamp(22px,4.5vw,30px);margin:0;line-height:1.1}
+.lead{max-width:600px;margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+.card{aspect-ratio:5/7;background:var(--c);border:0;border-radius:18px;padding:9px;display:flex;flex-direction:column;box-shadow:0 6px 0 #0007;color:var(--ink);transition:transform .12s}
+.card:hover{transform:translateY(-4px)}
+.art{flex:1;position:relative;display:grid;place-items:center;font-size:clamp(52px,12vw,76px);background:radial-gradient(circle at 50% 42%,#f0c04047,transparent 62%),var(--navy);border:3px solid #e0714f;border-radius:12px}
+.stz{position:absolute;top:6px;right:8px;font-size:15px;color:var(--yel);letter-spacing:1px}
+.ban{margin-top:8px;background:var(--cream);border:3px solid var(--navy);border-radius:10px;padding:6px;font-weight:700;text-align:center;line-height:1.1}
+.ban small{display:block;font-weight:400;font-size:13px;margin-top:2px}
+.panel{background:var(--t);color:var(--ink);border:10px solid var(--c);border-radius:20px;padding:20px;box-shadow:inset 0 0 0 3px var(--navy),0 6px 0 #0007}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.yr{flex:none;min-width:64px;height:64px;padding:0 6px;border-radius:50%;border:3px solid #0003;background:#fff5;display:grid;place-items:center;font-weight:700;font-size:19px}
+.panel ul{padding-left:20px;margin:10px 0 20px}.panel li{margin:7px 0}.panel p{margin:8px 0}
+.btn{background:var(--navy);color:var(--yel);border:3px solid var(--ink);border-radius:10px;padding:10px 18px;font-weight:700;box-shadow:0 4px 0 var(--ink);margin:4px 4px 4px 0}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.btn.ghost{background:var(--cream);color:var(--ink)}
+.bar{height:16px;border:3px solid var(--ink);border-radius:6px;background:#fff6;margin:6px 0 14px;overflow:hidden}.bar div{height:100%;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 13px);transition:width .4s}
+.meta{display:flex;justify-content:space-between;font-weight:700}
+.track{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}.track span{flex:1;min-width:104px;text-align:center;font-size:14px;padding:5px;border-radius:8px;border:3px dashed #0005}
+.track span.on{background:var(--navy);color:var(--yel);border:3px solid var(--ink)}
+.q{font-size:clamp(19px,3.8vw,24px);font-weight:700;line-height:1.3;margin:6px 0 16px}
+.opts{display:grid;gap:12px}
+.opt{background:#fffc;color:var(--ink);border:3px solid var(--ink);border-radius:10px;padding:12px 14px;text-align:left;box-shadow:0 4px 0 var(--ink)}
+.opt:not(:disabled):hover{background:#fff}.opt.ok{background:#8fe0a8}.opt.no{background:#ff9b9b}
+.fb{margin-top:18px;padding:14px;background:var(--cream);border:3px solid var(--ink);border-left:12px solid #2f9e5b;border-radius:10px;animation:pop .2s}
+.fb.no{border-left-color:#d23b3b}.real{font-size:16px;opacity:.85}
+.big{font-size:56px;color:var(--navy);letter-spacing:6px;margin:0}
+@keyframes pop{from{transform:scale(.97);opacity:.5}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><button class="brand" onclick="go('')">🌍 Going Global</button><span class="pts" id="pts"></span></header>
+<main id="app"></main>
+<script>
+const G=[
+{id:"intro",n:"Introduction",e:"🧭",c:"#1b2b66",t:"#b9c2ea",p:`<p>Every company that sells or produces abroad has had to decide why to leave its home market, where to go and how fast to move. Scholars have given different answers over the years. Some follow a product as it travels from one country to another. Others look at the advantages a firm needs before it invests abroad, or describe a slow process of learning from experience.</p><p>The most recent theories explain how firms from emerging economies, and small startups, become international with very few resources. The five theories here show how that explanation has changed over time.</p>`},
+{id:"glo",n:"Glossary",e:"📚",c:"#1b2b66",t:"#b9c2ea",p:`<ul><li><b>Exporting:</b> selling goods made at home to customers abroad.</li><li><b>Licensing:</b> letting a foreign firm use your technology or brand for a fee.</li><li><b>Franchising:</b> letting a foreign business use your brand and system for a fee.</li><li><b>FDI:</b> investment that gives lasting control over a firm abroad.</li><li><b>Psychic distance:</b> cultural and business differences that make a foreign market hard to know.</li><li><b>Network:</b> the partners, suppliers and customers a firm is connected to.</li><li><b>Latecomer:</b> a firm that enters a mature industry without key resources.</li><li><b>Capabilities:</b> what a firm does well, built from its skills and processes.</li><li><b>Emerging economy:</b> a fast-growing, industrializing country, such as Brazil or India.</li></ul>`},
+{id:"plc",n:"Product Life Cycle",e:"🏭",c:"#f96a55",t:"#f9c3b4",y:1971,au:"Raymond Vernon",tag:"Move the factory",
+track:["Home country (US)","Other advanced nations","Developing countries"],
+learn:["Vernon’s theory is about where a product is PRODUCED, not just sold.","New product → made at home (flexibility, customer feedback). Maturing → FDI in advanced nations. Standardized → low-wage developing countries.","The innovator ends up a net importer. Avoid decline through new innovation."],
+r:[
+["A startup launches a brand-new gadget whose design changes every week. Where should it be made?",0,"Unstandardized products need flexibility and quick feedback, so production stays close to customers and R&D. Demand is price-inelastic and the firm is a monopolist.||Real world: early-stage tech is usually prototyped near its engineers and lead users."],
+["Demand booms in Europe and local rivals start imitating. The firm builds plants in Germany and France. Which phase and location?",1,"As the product standardizes, cost matters more than features. FDI avoids tariffs, cuts costs and counters imitators (oligopolistic forestalling).||Real world: Ford opened European plants to serve growing local demand."],
+["The product is now a commodity, competition is all about price, and the process needs mostly unskilled labor. Where does production go?",2,"Stable, capital-intensive processes plus unskilled labor point to the lowest-cost locations.||Real world: basic electronics assembly moved to Asia and Mexico."],
+["What happens to the innovating country at the end of the cycle?",1,"It loses its advantage and becomes a NET IMPORTER of the product it invented.",["Stays the top exporter","Becomes a net importer","Stops all R&D"]],
+["Vernon (1974): barriers to entry shift from proprietary technology to economies of scale. Which oligopoly phase is this?",1,"Innovation-based = technology barrier. Mature = scale economies. Senescent = scale and brands no longer protect, so firms scan globally for low-cost sites.",["Innovation-based","Mature","Senescent"]]
+]},
+{id:"oli",n:"OLI Framework",e:"🔍",c:"#7b3fa0",t:"#e0d3ec",y:1977,au:"John Dunning",tag:"FDI detective",
+track:["Ownership (O)","Location (L)","Internalization (I)"],
+learn:["Dunning’s eclectic paradigm explains WHY, WHERE and HOW firms go abroad.","O = firm-specific advantages (brand, patents, capital). L = country-specific advantages (labor, infrastructure, policy). I = benefits of keeping activities inside the firm.","FDI happens only when O, L and I are ALL present."],
+r:[
+["A firm holds a patented battery technology no rival has.",0,"Patents are a Type 1 (asset-based) ownership advantage, specific to the enterprise."],
+["Vietnam offers skilled, affordable labor, good ports and tax incentives for foreign factories.",1,"These are country-specific, so they are Location advantages: labor, transport and government policy."],
+["Instead of licensing its technology, a company builds and runs its own plants to protect quality and secrecy.",2,"Choosing internal production over licensing avoids market failures and transaction costs: Internalization.||Real world: Coca-Cola keeps its recipe in-house and ships syrup to local bottlers."],
+["How many of O, L and I must hold at the same time for FDI?",2,"Ownership, internalization AND location must be met simultaneously.",["Any one of them","Two of the three","All three at once"]],
+["A firm has O and I advantages, but the host country offers no location edge. Best mode?",0,"Without L advantages, local production is not more attractive than exporting from home.",["Export from home","FDI in the host country","License to a partner"]],
+["Type 3 ownership advantages (multinationality-based) mean…",1,"Being multinational lets a firm exploit differences in factor costs, institutions and currencies, which a domestic firm cannot.",["A strong patent or brand","Exploiting differences across countries","Belonging to a bigger organization"]]
+]},
+{id:"upp",n:"Uppsala Model",e:"🪜",c:"#f2bf44",t:"#f5e6bd",y:1977,au:"Johanson & Vahlne",tag:"Climb the ladder",
+track:["Sporadic exports","Via local agents","Sales subsidiary","Production abroad"],
+learn:["Internationalization is gradual learning, not one big decision.","Firms deepen commitment in one country (export → produce) and expand to psychically close countries first.","Experiential knowledge reduces uncertainty. The 2009 update: networks and the liability of outsidership."],
+r:[
+["A young firm gets an unsolicited order from abroad. Which step on the establishment chain is this?",0,"The chain starts with irregular, low-commitment exports."],
+["Having learned from sales through agents, the firm opens its own office to sell directly abroad.",2,"A sales subsidiary is a bigger resource commitment than agents, made after experience reduces uncertainty."],
+["A Colombian firm chooses its first export market. What does Uppsala predict?",0,"Firms start where psychic distance (perceived cultural difference) is smallest.",["Ecuador (close culture)","Japan (huge market)","Finland (low tariffs)"]],
+["Knowledge that can only be gained by operating in the market is called…",1,"Experiential knowledge comes from direct experience; objective knowledge can be taught.",["Objective knowledge","Experiential knowledge","Explicit knowledge"]],
+["After years of deep local learning, the firm builds its own factory in the foreign market.",3,"Highest commitment comes last, when market uncertainty is low."],
+["In the 2009 revisit, the main barrier to expansion becomes…",0,"Johanson & Vahlne: being outside relevant business networks matters more than psychic distance.||Real world: a new entrant without distributor relationships struggles even in a familiar culture.",["Liability of outsidership","Tariffs","Geographic distance"]]
+]},
+{id:"lll",n:"LLL Framework",e:"🤝",c:"#0f7b86",t:"#c5e8e6",y:2006,au:"John Mathews",tag:"Build alliances",
+track:["Linkage","Leverage","Learning"],
+learn:["Mathews: how resource-poor latecomers catch up with incumbents.","Linkage = join partners (JVs, alliances, value chains). Leverage = use their resources. Learning = repeat the cycle and build your own capabilities.","Complements OLI: it focuses on external resources, not owned ones."],
+r:[
+["A challenger signs a joint venture with a leading foreign incumbent to access its technology.",0,"Partnering with incumbents and network partners reduces entry risk: Linkage.||Real world: Lenovo’s 2005 purchase of IBM’s PC business."],
+["It then uses the partner’s know-how and distribution channels to launch products faster.",1,"Turning partners’ resources into accessible inputs, based on transferability, imitability and accessibility, is Leverage."],
+["After several cycles, it coordinates complex projects alone and has built its own capabilities.",2,"Repeated linkage and leverage create organizational learning."],
+["LLL is designed to explain which firms?",1,"Resource-poor latecomers that outcompete rivals via external resources.",["Resource-rich incumbents","Resource-poor challengers","Only domestic firms"]],
+["Unlike OLI, LLL emphasizes…",1,"OLI centers on advantages the firm owns; LLL on external opportunities and partners.",["Advantages already owned","External resources via partners","Government subsidies only"]],
+["A supplier joins a global value chain to gain orders and know-how.",0,"Joining value chains and alliances is the Linkage step: without it, the firm lacks resources."],
+["What is the main risk of the LLL path?",0,"Close partnerships can leak the firm’s own knowledge to its partners.",["Leaking its own knowledge to partners","Owning too many resources","Having no foreign competitors"]]
+]},
+{id:"inv",n:"International New Ventures",e:"🚀",c:"#4a8f48",t:"#cfe9cc",y:1994,au:"Oviatt & McDougall",tag:"Born global or not?",
+track:["Traditional (Uppsala)","International new venture","Born global"],
+learn:["Oviatt & McDougall: some firms are international from inception.","The criterion is AGE at internationalization, not size or foreign assets (FDI is not required).","Enablers: ICT, cheaper travel, global niches, founders with international experience and networks."],
+r:[
+["A SaaS startup sells in 15 countries within two years, with 40% of sales abroad.",2,"Born globals reach 25%+ foreign sales in 2–3 years and expand to many countries simultaneously."],
+["A bakery sells locally for 20 years, then exports to a neighboring country through an agent.",0,"Slow, step-by-step expansion after domestic maturity is the Uppsala pattern."],
+["A small design firm goes abroad early to a few nearby markets and learns step by step.",1,"INVs internationalize early, but may expand gradually in one or a few regional markets."],
+["The defining criterion of an INV is…",1,"Age at internationalization, not size, revenue or asset ownership.",["Firm size","Age at internationalization","Owning foreign assets"]],
+["Which is NOT a reason INVs can skip stages?",2,"Scale is an effect of global success, not a prerequisite.",["Cheaper travel and communication","Founders with international experience","Decades of domestic scale"]],
+["Born globals typically reach what share of foreign sales within 2–3 years?",1,"A common benchmark is 25% or more.",["About 5%","25% or more","Over 90%"]],
+["Which statement is correct?",1,"Born globals are the extreme case of INVs: global from day one, while many INVs go abroad early but step by step.",["Every INV is a born global","Every born global is an INV","They mean exactly the same"]]
+]}];
+const $=s=>document.querySelector(s);
+let S={b:{},st:{}};try{S=JSON.parse(localStorage.getItem("gg"))||S}catch(e){}
+const save=()=>{try{localStorage.setItem("gg",JSON.stringify(S))}catch(e){}};
+const tot=()=>Object.values(S.b).reduce((a,b)=>a+b,0);
+let g,i,ok,run,streak,gi;
+const stars=n=>"★".repeat(n)+"☆".repeat(3-n);
+function paint(h,c){$("#app").innerHTML=h;document.documentElement.style.setProperty("--c",c||"#1b2b66");document.documentElement.style.setProperty("--t",(g&&g.t)||"#b9c2ea");$("#pts").textContent=tot()+" pts";window.scrollTo(0,0)}
+function go(id){location.hash.slice(1)==id?route():(location.hash=id)}
+function hub(){
+ const d=G.filter(x=>x.r&&S.st[x.id]>0).length;
+ paint(`<h1>Theories of Internationalization</h1><p class="lead">Collect all the cards. Play one game per theory, learn why each answer works and see it in the real world. Mastered: ${d}/5</p><div class="grid">${G.map(x=>`<button class="card" style="--c:${x.c}" onclick="go('${x.id}')"><span class="art">${x.e}${x.r?`<span class="stz">${stars(S.st[x.id]||0)}</span>`:""}</span><span class="ban">${x.n}<small>${x.r?x.tag:"Read first"}</small></span></button>`).join("")}</div>`)}
+function intro(k){
+ gi=k;g=G[k];const nx=G[k+1];
+ paint(g.r?`<div class="panel"><div class="hd"><h2>${g.e} ${g.n}</h2><span class="yr">${g.y}</span></div><p><b>Main author:</b> ${g.au}</p><ul>${g.learn.map(t=>`<li>${t}</li>`).join("")}</ul><button class="btn" onclick="start()">Start game</button><button class="btn ghost" onclick="go('')">All cards</button></div>`:`<div class="panel"><div class="hd"><h2>${g.e} ${g.n}</h2></div>${g.p}<button class="btn" onclick="go('${nx.id}')">Next card</button><button class="btn ghost" onclick="go('')">All cards</button></div>`,g.c)}
+function start(){i=0;ok=0;run=0;streak=0;round()}
+function round(){
+ const r=g.r[i],o=r[3]||g.track;
+ paint(`<div class="panel"><div class="hd"><h2>${g.e} ${g.n}</h2><span class="yr">${i+1}/${g.r.length}</span></div><div class="meta"><span>Streak ${streak}</span><span>${run} pts</span></div><div class="bar"><div style="width:${i/g.r.length*100}%"></div></div><div class="track" id="tr">${g.track.map(t=>`<span>${t}</span>`).join("")}</div><p class="q">${r[0]}</p><div class="opts">${o.map((t,j)=>`<button class="opt" onclick="pick(${j})">${t}</button>`).join("")}</div><div id="fb"></div></div>`,g.c)}
+function pick(j){
+ const r=g.r[i],a=r[1],good=j==a;
+ document.querySelectorAll(".opt").forEach((b,x)=>{b.disabled=true;if(x==a)b.classList.add("ok");else if(x==j)b.classList.add("no")});
+ if(!r[3])document.querySelectorAll("#tr span")[a].classList.add("on");
+ if(good){ok++;streak++;run+=100+25*Math.min(streak-1,4)}else streak=0;
+ const [w,real]=r[2].split("||"),last=i==g.r.length-1;
+ $("#fb").innerHTML=`<div class="fb ${good?"":"no"}"><b>${good?"Correct! +"+(100+25*Math.min(streak-1,4)):"Not quite."}</b><p>${w}</p>${real?`<p class="real">${real}</p>`:""}<button class="btn" onclick="${last?"end()":"i++;round()"}">${last?"See results":"Next"}</button></div>`;
+ $(".fb").scrollIntoView({block:"nearest",behavior:"smooth"})}
+function end(){
+ const n=g.r.length,s=ok==n?3:ok>=n-1?2:ok>=Math.ceil(n/2)?1:0;
+ S.b[g.id]=Math.max(S.b[g.id]||0,run);S.st[g.id]=Math.max(S.st[g.id]||0,s);save();
+ const nx=G[gi+1];
+ paint(`<div class="panel" style="text-align:center"><p class="big">${stars(s)}</p><h2>${ok}/${n} correct · ${run} pts</h2><p>${s==3?"Flawless. Card collected!":s>0?"Solid. Replay to lock in the details.":"Read the card again and give it another go."}</p><button class="btn" onclick="start()">Play again</button><button class="btn ghost" onclick="go('${g.id}')">Review card</button>${nx?`<button class="btn ghost" onclick="go('${nx.id}')">Next: ${nx.n}</button>`:""}<button class="btn ghost" onclick="go('')">All cards</button></div>`,g.c)}
+function route(){const k=G.findIndex(x=>x.id==location.hash.slice(1));k>=0?intro(k):hub()}
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
